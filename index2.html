@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <h1>Bereken uw opbrengsten met zonnepanelen</h1>
+
+
+  <div>
+    <p>Hoe schuin is uw dak?</p>
+    <select id="inputGraden">
+      <option value=0>0 graden</option>
+      <option value=15>15 graden</option>
+      <option value=30>30 graden</option>
+      <option value=45>45 graden</option>
+      <option value=60>60 graden</option>
+    </select>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+
+  <div>
+    <p>Aantal zonnepanelen</p>
+    <select id="inputAantalPanelen">
+      <option value=1>1 Zonnepaneel</option>
+      <option value=2>2 Zonnepanelen</option>
+      <option value=4>4 Zonnepanelen</option>
+      <option value=6>6 Zonnepanelen</option>
+      <option value=8>8 Zonnepanelen</option>
+      <option value=10>10 Zonnepanelen</option>
+      <option value=12>12 Zonnepanelen</option>
+      <option value=14>14 Zonnepanelen</option>
+
+    </select>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+  <div>
+    <p>Oriëntatie van uw dak</p>
+    <select id="inputOriëntatie">
+      <option value=1>Noord</option>
+      <option value=2>Oost</option>
+      <option value=4>Zuid</option>
+      <option value=4>West</option>
+    </select>
+  </div>
+
+  <br/>
+  <br/>
+  <button type="button" id="buttonID">Berekenen</button>
+  <br/>
+  <br/>
+
+  <p id="returnValue"> </p>
+
+
+  <script>
+    document.getElementById("buttonID").onclick = function() {
+      myFunction()
+    }
+
+    function myFunction() {
+
+      let outputGraden = document.getElementById("inputGraden").value;
+      let outputAantalPanelen = document.getElementById("inputAantalPanelen").value;
+      let outputOriëntatie = document.getElementById("inputOriëntatie").value;
+      let startOpbrengst = 1000;
+        
+        if(outputGraden == 0){
+          startOpbrengst = startOpbrengst * 0.90;
+        } else if(outputGraden == 15){
+          startOpbrengst = startOpbrengst * 0.95;
+        } else if(outputGraden == 30){
+          startOpbrengst = startOpbrengst * 1.05;
+        } else if(outputGraden == 45){
+          startOpbrengst = startOpbrengst * 1.15;
+        } else if(outputGraden == 60){
+          startOpbrengst = startOpbrengst * 1.10;
+        } 
+        
+        
+        if (outputAantalPanelen == 1){
+          startOpbrengst = startOpbrengst;
+        } else if(outputAantalPanelen == 2){
+          startOpbrengst = startOpbrengst * 2;
+        }else if(outputAantalPanelen == 4){
+          startOpbrengst = startOpbrengst * 4;
+        }else if(outputAantalPanelen == 6){
+          startOpbrengst = startOpbrengst * 6;
+        }else if(outputAantalPanelen == 8){
+          startOpbrengst = startOpbrengst * 8;
+        }else if(outputAantalPanelen == 10){
+          startOpbrengst = startOpbrengst * 10;
+        }else if(outputAantalPanelen == 12){
+          startOpbrengst = startOpbrengst * 12;
+        }else if(outputAantalPanelen == 14){
+          startOpbrengst = startOpbrengst * 14;
+        }
+
+
+
+
+
+
+        document.getElementById("returnValue").innerHTML = "Uw systeem genereert gemiddeld " + startOpbrengst + "kWh per jaar.";
+
+
+
+    }
+  </script>
+</body>
+
+
+
+</html>
